@@ -61,9 +61,12 @@ fun AddEditNoteScreen(
 
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = {
-                viewModel.onEvent(AddEditNoteEvent.SaveNote)
-            }, backgroundColor = MaterialTheme.colors.primary) {
+            FloatingActionButton(
+                onClick = {
+                    viewModel.onEvent(AddEditNoteEvent.SaveNote)
+                },
+                backgroundColor = MaterialTheme.colors.primary
+            ) {
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
             }
         },
@@ -77,7 +80,7 @@ fun AddEditNoteScreen(
         ) {
             Row(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -134,7 +137,7 @@ fun AddEditNoteScreen(
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                 },
-                isHintVisible = titleState.isHintVisible,
+                isHintVisible = contentState.isHintVisible,
                 textStyle = MaterialTheme.typography.body1,
                 modifier = Modifier.fillMaxHeight()
             )

@@ -6,9 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,7 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CleanArchitectureNoteAppTheme {
-                androidx.compose.material.Surface(
+                Surface(
                     color = MaterialTheme.colors.background
                 ) {
                     val navController = rememberNavController()
@@ -46,6 +43,11 @@ class MainActivity : ComponentActivity() {
                             arguments = listOf(
                                 navArgument(
                                     name = "noteId"
+                                ) {
+                                    type = NavType.IntType
+                                    defaultValue = -1
+                                },navArgument(
+                                    name = "noteColor"
                                 ) {
                                     type = NavType.IntType
                                     defaultValue = -1
